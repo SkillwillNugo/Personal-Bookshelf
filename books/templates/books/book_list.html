@@ -1,5 +1,19 @@
-<h1>Books</h1>
-
-{% for book in books %}
-    <h2><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></h2>
-{% endfor %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: darkblue; }
+        a { color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Books</h1>
+    {% for book in books %}
+        <h2><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></h2>
+    {% empty %}
+        <p>No books available.</p>
+    {% endfor %}
+</body>
+</html>
